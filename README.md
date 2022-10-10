@@ -3,8 +3,6 @@
 
 
 
-## Author: Dev AT
-## Youtube tutorials: https://youtu.be/AjItjNc0bHA
 
 ## Install dependencies for server 
 ### `npm install`
