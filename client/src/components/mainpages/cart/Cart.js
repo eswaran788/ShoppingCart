@@ -11,11 +11,11 @@ function Cart() {
 
     useEffect(() =>{
         const getTotal = () =>{
-            const total = cart.reduce((prev, item) => {
+            const totalPrice = cart.reduce((prev, item) => {
                 return prev + (item.price * item.quantity)
             },0)
 
-            setTotal(total)
+            setTotal(totalPrice)
         }
 
         getTotal()
@@ -64,17 +64,17 @@ function Cart() {
         }
     }
 
-    const tranSuccess = async(payment) => {
-        const {paymentID, address} = payment;
+    // const tranSuccess = async(payment) => {
+    //     const {paymentID, address} = payment;
 
-        await axios.post('/api/payment', {cart, paymentID, address}, {
-            headers: {Authorization: token}
-        })
+    //     await axios.post('/api/payment', {cart, paymentID, address}, {
+    //         headers: {Authorization: token}
+    //     })
 
-        setCart([])
-        addToCart([])
-        alert("You have successfully placed an order.")
-    }
+    //     setCart([])
+    //     addToCart([])
+    //     alert("You have successfully placed an order.")
+    // }
 
 
     if(cart.length === 0) 
@@ -109,12 +109,12 @@ function Cart() {
                 ))
             }
 
-            {/* <div className="total">
+            <div className="total">
                 <h3>Total: $ {total}</h3>
-                <PaypalButton
+                {/* <PaypalButton
                 total={total}
-                tranSuccess={tranSuccess} />
-            </div> */}
+                tranSuccess={tranSuccess} /> */}
+            </div>
         </div>
     )
 }
